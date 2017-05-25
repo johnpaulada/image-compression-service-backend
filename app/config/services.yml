@@ -1,0 +1,24 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    gd_compressor:
+        class: AppBundle\Image\GDCompressor
+
+    imagick_compressor:
+        class: AppBundle\Image\ImagickCompressor
+
+    lossless_compressor:
+        class: AppBundle\Image\LosslessCompressor
+
+    lossish_compressor:
+        class: AppBundle\Image\LossishCompressor
+
+    image_compressor:
+        class: AppBundle\Image\ImageCompressor
+        arguments: ['@lossish_compressor']
