@@ -8,11 +8,17 @@ namespace AppBundle\Image;
  */
 class LossishCompressor extends AbstractCompressor implements ImageCompressorInterface
 {
+  /**
+   * {@inheritDoc}
+   */
   protected function getJpegCommand($src, $dest)
   {
     return "jpeg-recompress --strip --method smallfry $src $dest";
   }
-
+  
+  /**
+   * {@inheritDoc}
+   */
   protected function getPngCommand($src, $dest)
   {
     return "pngquant --strip  --quality 75-80 --output $dest $src";
